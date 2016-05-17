@@ -127,6 +127,7 @@ module ZohoApi
     end
 
     def related_records(parent_module, parent_record_id, related_module)
+      puts "yay"
       r = self.class.get(create_url("#{parent_module}", 'getRelatedRecords'),
                          :query => {:newFormat => 1, :authtoken => @auth_token, :scope => 'crmapi',
                                     :parentModule => parent_module, :id => parent_record_id})
@@ -134,6 +135,7 @@ module ZohoApi
       x = REXML::Document.new(r.body).elements.to_a("/response/result/#{parent_module}/row")
       check_for_errors(r)
       binding.pry
+      puts x
       to_hash(x, related_module)
     end
 
