@@ -133,6 +133,8 @@ module ZohoApi
 
       x = REXML::Document.new(r.body).elements.to_a("/response/result/#{parent_module}/row")
       check_for_errors(r)
+      binding.pry
+      to_hash(x, related_module)
     end
 
     def some(module_name, index = 1, number_of_records = nil, sort_column = :id, sort_order = :asc, last_modified_time = nil)
