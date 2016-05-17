@@ -4,6 +4,7 @@ gem 'activemodel'
 gem 'httmultiparty'
 gem 'roxml'
 gem 'multipart-post'
+gem 'pry'
 
 group :test do
   gem 'simplecov', '>= 0.7.1', :require => false, :group => :test
