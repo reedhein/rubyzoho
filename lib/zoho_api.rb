@@ -137,7 +137,6 @@ module ZohoApi
         }
       }
       query.fetch(:query).merge!(modified_query) #fromIndex: 1, toIndex: 200
-      binding.pry
       r = self.class.get(create_url("#{related_module}", 'getRelatedRecords'), query)
 
       x = REXML::Document.new(r.body).elements.to_a("/response/result/#{related_module}/row")
