@@ -136,7 +136,7 @@ module ZohoApi
           id: parent_record_id
         }
       }
-      query = query.merge(modified_query) #fromIndex: 1, toIndex: 200
+      query.fetch(:query).merge!(modified_query) #fromIndex: 1, toIndex: 200
       binding.pry
       r = self.class.get(create_url("#{related_module}", 'getRelatedRecords'), query)
 
